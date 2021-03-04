@@ -1,6 +1,5 @@
 package com.spring.hateoas.service.impl;
 
-import com.spring.hateoas.assembler.BookModelAssembler;
 import com.spring.hateoas.domain.Book;
 import com.spring.hateoas.mapper.BookMapper;
 import com.spring.hateoas.model.request.BookRequestDto;
@@ -18,13 +17,11 @@ public class BookServiceImpl extends AbstractBaseCrudService<BookResponseDto, Bo
 
     BookRepository bookRepository;
     BookMapper bookMapper;
-    BookModelAssembler bookModelAssembler;
 
-    public BookServiceImpl(BookMapper bookMapper, BookRepository bookRepository,BookModelAssembler bookModelAssembler) {
-        super(bookRepository,bookMapper,bookModelAssembler);
+    public BookServiceImpl(BookMapper bookMapper, BookRepository bookRepository) {
+        super(bookRepository,bookMapper);
         this.bookMapper = bookMapper;
         this.bookRepository = bookRepository;
-        this.bookModelAssembler = bookModelAssembler;
     }
 }
 

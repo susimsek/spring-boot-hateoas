@@ -6,6 +6,9 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 
 public interface BaseMapper<R,W,T> {
     R tToR(T t);
+
+    R tToRWithLinks(T t);
+
     T wToT(W w);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)

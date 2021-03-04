@@ -3,8 +3,8 @@ package com.spring.hateoas.decorator;
 
 import com.spring.hateoas.domain.Book;
 import com.spring.hateoas.mapper.BookMapper;
-import com.spring.hateoas.model.request.BookRequestDto;
 import com.spring.hateoas.model.response.BookResponseDto;
+import com.spring.hateoas.util.BookLinkUtils;
 import lombok.AccessLevel;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
@@ -18,13 +18,12 @@ public abstract class BookMapperDecorator implements BookMapper  {
     @Setter(onMethod = @__({@Autowired}))
     BookMapper bookMapper;
 
-    @Override
-    public BookResponseDto tToR(Book book) {
-      return bookMapper.tToR(book);
-    }
+    @Setter(onMethod = @__({@Autowired}))
+    BookLinkUtils bookLinkUtils;
 
     @Override
-    public Book wToT(BookRequestDto bookRequestDto) {
-       return bookMapper.wToT(bookRequestDto);
+    public BookResponseDto tToRWithLinks(Book book) {
+        BookResponseDto bookResponseDto = bookMapper.tToR(book);
+        return bookLinkUtils.getLinks(bookResponseDto);
     }
 }

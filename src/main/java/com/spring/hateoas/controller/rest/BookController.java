@@ -16,6 +16,7 @@ import lombok.experimental.FieldDefaults;
 import org.springdoc.core.converters.models.PageableAsQueryParam;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -40,7 +41,7 @@ public class BookController {
     @Operation(summary = "Get all Books")
     @GetMapping(value = "/books" )
     @ResponseStatus(HttpStatus.OK)
-    public PagedModel<BookResponseDto> listBooks(Pageable page) {
+    public PagedModel<EntityModel<BookResponseDto>> listBooks(Pageable page) {
         return bookService.findAll(page);
     }
 
