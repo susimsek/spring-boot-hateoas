@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: 1.16.0
+name: test
+type: application
+version: 0.1.0
+dependencies:
+  - alias: elasticsearch
+    condition: elasticsearch.enabled
+    name: elasticsearch
+    repository: https://helm.elastic.co/
+    version: 7.7.1
+  - alias: kibana
+    condition: kibana.enabled
+    name: kibana
+    repository: https://helm.elastic.co/
+    version: 7.7.1
+  - alias: apmserver
+    condition: apmserver.enabled
+    name: apm-server
+    repository: https://helm.elastic.co/
+    version: 7.7.1
+  - alias: rabbitmq
+    condition: rabbitmq.enabled
+    name: rabbitmq
+    repository: https://charts.bitnami.com/bitnami/
+    version: 6.19.2

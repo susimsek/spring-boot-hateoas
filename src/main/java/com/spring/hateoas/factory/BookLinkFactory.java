@@ -1,6 +1,7 @@
-package com.spring.hateoas.util;
+package com.spring.hateoas.factory;
 
 import com.spring.hateoas.controller.rest.BookController;
+import com.spring.hateoas.factory.base.LinkFactory;
 import com.spring.hateoas.model.response.BookResponseDto;
 import org.springframework.hateoas.Link;
 import org.springframework.stereotype.Component;
@@ -9,9 +10,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 
-
 @Component
-public class BookLinkUtils implements LinkUtils<BookResponseDto> {
+public class BookLinkFactory implements LinkFactory<BookResponseDto> {
 
     @Override
     public BookResponseDto getLinks(BookResponseDto bookResponseDto) {

@@ -1,0 +1,15 @@
+dependencies:
+- name: elasticsearch
+  repository: https://helm.elastic.co/
+  version: 7.7.1
+- name: kibana
+  repository: https://helm.elastic.co/
+  version: 7.7.1
+- name: apm-server
+  repository: https://helm.elastic.co/
+  version: 7.7.1
+- name: rabbitmq
+  repository: https://charts.bitnami.com/bitnami/
+  version: 6.19.2
+digest: sha256:e619d9a68dbd536c7ab92a53fe3f9d7b8c5dd3516327e2f52f378cdbafd6f550
+generated: "2021-03-02T14:19:41.859792+03:00"
