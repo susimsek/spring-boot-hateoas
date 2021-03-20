@@ -23,11 +23,16 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
+
 @Tag(name = "books", description = "Retrieve and manage books")
 @RestController
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @RequiredArgsConstructor
-@RequestMapping("/versions/1")
+@RequestMapping(value = "/versions/1",
+        consumes = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE, "application/x-yaml"},
+        produces = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE, "application/x-yaml"})
 public class BookController {
 
     final BookService bookService;
